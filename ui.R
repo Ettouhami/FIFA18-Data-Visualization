@@ -6,18 +6,13 @@
 #
 
 library(shiny)
+library(radarchart)
 
 shinyUI(fluidPage(theme="bootstrap.min.css",
   includeCSS("style.css"),
   tags$h1("FIFA 18 Analytics"),
   tags$p("Created by Ansaf Ahmad & Mohammad Etouhami"),
   
-  tags$div(class="player-chart",plotOutput("playerChart",
-    width = "100%", height = "85vh", click = NULL,
-    dblclick = NULL, hover = NULL, hoverDelay = NULL,
-    hoverDelayType = NULL, brush = NULL, clickId = NULL, hoverId = NULL,
-    inline = FALSE
-    )
-  )
+  tags$div(class="player-chart", chartJSRadarOutput("playerChart", width = "100", height = "75"))
 
 ))

@@ -6,7 +6,7 @@
 #
 
 library(shiny)
-library(fmsb)
+library(radarchart)
 shinyServer(function(input, output) {
 
   output$distPlot <- renderPlot({
@@ -25,25 +25,17 @@ shinyServer(function(input, output) {
     barplot(counts, main = "Car Mpg", xlab="Gears", horiz=TRUE, names.arg = c("3 Gears","4 Gears", "5 Gears"))
   })
 
-  output$playerChart <- renderPlot({
-    # Create data: note in High school for Jonathan:
-    data=as.data.frame(matrix( sample( 1:100 , 6, replace=T) , ncol=6))
-    colnames(data)=c("Sprint" , "Shot Power" , "Heading" , "Dribbling", "Crossing", "Passing")
+  output$playerChart <- renderChartJSRadar({
+    scores <- data.frame("Label"=c("Communicator", "Data Wangler", "Programmer",
+                                   "Technologist",  "Modeller", "Visualizer"),
+                         "Rich" = c(9, 7, 4, 5, 3, 7),
+                         "Andy" = c(7, 6, 6, 2, 6, 9),
+                         "Aimee" = c(6, 5, 8, 4, 7, 6))
     
-    # To use the fmsb package, I have to add 2 lines to the dataframe: the max and min of each topic to show on the plot!
-    data=rbind(rep(100,4) , rep(0,6) , data)
+    chartJSRadar(scores, maxScale = 10, showToolTipLabel=TRUE)
     
-    # The default radar chart proposed by the library:
-    radarchart(data
-               , axistype=1 , 
-               
-               #custom polygon
-               pcol=rgb(0.2,0.5,0.5,0.9) , pfcol=rgb(0.2,0.5,0.5,0.5) , plwd=4 , 
-               
-               #custom the grid
-               cglcol="grey", cglty=1, axislabcol="grey", caxislabels=seq(0,20,5), cglwd=0.8,
-               
-               #custom labels
-               vlcex=0.8 )
   })
+  
+
+  
 })
