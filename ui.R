@@ -10,7 +10,7 @@ library(shiny)
 shinyUI(fluidPage(theme="bootstrap.min.css",
   includeCSS("style.css"),
   tags$h1("FIFA 18 Analytics"),
-  tags$p("Created by Ansaf Ahmad & Mohammad Etouhammi"),
+  tags$p("Created by Ansaf Ahmad & Mohammad Etouhami"),
   
   tags$div(class="player-chart",plotOutput("playerChart",
     width = "100%", height = "85vh", click = NULL,
