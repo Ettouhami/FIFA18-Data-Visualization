@@ -11,7 +11,7 @@ library(DT)
 library(ggplot2)
 
 # Import the data
-FullData <- read_csv("C:/Users/Mohammad/Desktop/Fifa18  Data Analysis/CompleteDataset.csv")
+FullData <- read_csv("C:/Users/Mohammad/Desktop/FIFA18-Data-Visualization/Analysis/CompleteDataset.csv")
 setDT(FullData)
 # View the column names
 names(FullData)

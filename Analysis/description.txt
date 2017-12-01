@@ -1,0 +1,5 @@
+FIFA 18 Database Graphical Representation
+This Shiny App is for visulizating professional soccer players attributes and skills for the EA sports game FIFA 18. 
+The dataset is from Kaggle.com and contains the basic information of each set (player rating, speed, control, position, reflexes, wages, etc)
+
+Data Source: https://www.kaggle.com/thec03u5/fifa-18-demo-player-dataset
